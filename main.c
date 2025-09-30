@@ -66,14 +66,54 @@ typedef struct
     TipoApontador ultimo;
 }TipoLista;
 
+TipoApontador CadastrarNovoFunc(){
+    TipoApontador p = (TipoApontador) malloc (sizeof (TipoItem));
+
+    gotoxy(40,06);
+    printf("codigo: ");
+    gotoxy(40,8);
+    printf("nome: ");
+    gotoxy(40,10);
+    printf("endereco: ");
+    gotoxy(40,12);
+    printf("cargo: ");
+    gotoxy(40,14);
+    printf("data de admissao ex:(dd/mm/aaaa): ");
+    gotoxy(40,16);
+    printf("telefone: ");
+    gotoxy(40,18);
+    printf("salario: ");
+
+
+    gotoxy(41,06);
+    scanf("%d" , &p -> conteudo.codigo);
+    getchar();
+    gotoxy(41,8);
+    fgets(p -> conteudo.nome , sizeof(p -> conteudo.nome),  stdin);
+    gotoxy(41,10);
+    fgets(p -> conteudo.endereco , sizeof(p -> conteudo.endereco) , stdin);
+    gotoxy(41,12);
+    fgets(p -> conteudo.cargo , sizeof(p -> conteudo.cargo) , stdin);
+    gotoxy(41,14);
+    fgets(p -> conteudo.dt_admissao , sizeof(p -> conteudo.dt_admissao) , stdin);
+    gotoxy(41,16);
+    fgets(p -> conteudo.telefone , sizeof(p -> conteudo.telefone) , stdin);
+    gotoxy(41,18);
+    scanf("%f" , &p -> conteudo.salario);
+    getchar();
+
+    p -> anterior = NULL;
+    p -> proximo = NULL;
+
+    return p;
+}
 
 
 int main()
 {
+int opcao;
+
     tela();
-
-    int opcao;
-
     gotoxy(40,8);
     printf("1 - cadastrar no inicio da lista.");
     gotoxy(40,10);
@@ -92,10 +132,10 @@ int main()
     printf("8 - consultar cliente.");
     gotoxy(40,24);
     printf("9 - excluir cliente.");
+    gotoxy(40,26);
+    printf("digite sua opcao: ");
 
-    // Leitura da entrada
-    scanf("%d", &opcao);
-
-
+    gotoxy(41,26);
+    scanf("%d" , &opcao);
     
 }
