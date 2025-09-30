@@ -12,7 +12,7 @@ void gotoxy (int x, int y){
 void tela(){
     system("cls");
     int i;
-    for(i = 0; i < 25; i++){
+    for(i = 1; i < 25; i++){
         gotoxy(01,i);
         printf("|");
         gotoxy(80,i);
